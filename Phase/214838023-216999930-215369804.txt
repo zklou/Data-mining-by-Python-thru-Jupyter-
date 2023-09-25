@@ -1,0 +1,377 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import sklearn
+from sklearn.preprocessing import OneHotEncoder
+from mlxtend.frequent_patterns import apriori, association_rules
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import make_column_transformer
+
+import warnings
+warnings.simplefilter("ignore")
+
+path = "C:/Users/zklou/Documents/2022 summer/data mining/"
+
+#read car data from three csv files and save as dataframe
+tata_data = pd.read_csv(path + '/Tata.csv')
+ford_data = pd.read_csv(path + '/Ford.csv')
+honda_data = pd.read_csv(path + '/Honda.csv')
+
+#merge three datasets into one
+car_data = pd.concat([tata_data,ford_data],axis=0)
+car_data = pd.concat([car_data,honda_data],axis=0)
+print("There are {} samples and {} features in dataset".format(*car_data.shape))
+
+#drop NA values
+car_data = car_data.dropna()
+
+#preview
+car_data.head()
+
+#extract numerical values only
+car_data.mileage = car_data.mileage.str.extract('(\d+)')
+car_data.engine = car_data.engine.str.extract('(\d+)')
+car_data.max_power = car_data.max_power.str.extract('(\d+)')
+
+#turn dtype from object into numerical
+car_data.mileage = car_data.mileage.astype(float)
+car_data.engine = car_data.engine.astype(float)
+car_data.max_power = car_data.max_power.astype(float)
+
+#show data cleaning results
+print(car_data.dtypes)
+
+#histogram for numerical varibles
+numerical_var_names = ['year', 'selling_price', 'km_driven', 'mileage', 'engine', 'max_power', 'seats']
+categorical_var_names = ['seller_type', 'transmission', 'owner']
+
+#plot histograms for the rest variables
+car_data.hist(column = numerical_var_names) 
+plt.show()
+
+car_data[categorical_var_names[0]].value_counts().plot(kind='bar')
+plt.show()
+car_data[categorical_var_names[1]].value_counts().plot(kind='bar')
+plt.show()
+car_data[categorical_var_names[2]].value_counts().plot(kind='bar')
+plt.show()
+
+#save to CSV format
+all_var_names = list(car_data.columns)
+all_var_names.remove('name')
+all_var_names.remove('torque')
+all_var_names.remove('owner')
+
+car_select = car_data[all_var_names]
+car_select.to_csv(path + " 100131001-100131002—T1Old.csv")
+
+car_clean = car_data
+#cont. variable into bins
+cont_var_names = ['selling_price', 'km_driven', 'mileage', 'engine', 'max_power']
+for var in cont_var_names:
+    car_clean[var] = pd.cut(car_data[var], 5)
+car_clean.head()
+
+#one-hot-encoding data
+transformer = make_column_transformer(
+    (OneHotEncoder(), all_var_names),
+    remainder='drop')
+transformed = transformer.fit_transform(car_clean)
+
+col_names = transformer.get_feature_names()
+for i in range(len(all_var_names)):
+        col_names = [sub.replace('onehotencoder__x'+ str(i), 
+                                 all_var_names[i]) for sub in col_names]
+car_binary = pd.DataFrame(transformed.todense(), columns = col_names)
+car_binary.head()
+
+#calculate frequent item-sets
+freq_items = apriori(car_binary, min_support = 0.05, use_colnames = True)
+
+#delete all itemsets < 2
+two_freq_items = freq_items.copy(deep = True)
+del_list = []
+for i in range(freq_items.shape[0]):
+    if len(list(freq_items.iloc[i, 1])) <= 1:
+        del_list.append(i)
+two_freq_items.drop(del_list, axis = 0, inplace = True)
+
+#sorting and displaying
+two_freq_items.sort_values(by = 'support', ascending=False).head(10)
+
+#format for better visualization
+for i in range(10):
+    print('Itemset' + str(i) + ": " + str(two_freq_items.sort_values(by = 'support', ascending=False).iloc[i, 1]))
+
+#calculate association rules
+rules = association_rules(freq_items, metric ="lift", min_threshold = 1)
+
+#sort and display rules based on confidence level
+rules = rules.sort_values(['confidence', 'lift'], ascending =[False, False])
+rules.head()
+
+#format for better visualization
+print("==========================Five Most Confident Associative Rules:==========================")
+for i in range(5):
+    print("Rule" + str(i+1) + ":")
+    print(str(rules.iloc[i, 0]) + "->\n" + str(rules.iloc[i, 1]) + "\n")
+    
+print("==========================Five Least Confident Associative Rules==========================")
+for i in range(1, 6):
+    print("Rule" + str(5-i) + ":")
+    print(str(rules.iloc[-i, 0]) + "->\n" + str(rules.iloc[-i, 1]) + "\n")
+
+#helper function that takes in a rule and calculate 5 MOIs
+def get_moi(ante, conse):
+    N = car_binary.shape[0]
+    #f1+
+    res_1p = np.ones(N)
+    for condition in list(ante):
+        res_1p = np.logical_and(res_1p, car_binary[condition])
+    f_1p = np.sum(res_1p)
+    #f+1
+    res_p1 = np.ones(car_binary.shape[0])
+    for condition in list(conse):
+        res_p1 = np.logical_and(res_p1, car_binary[condition])
+    f_p1 = np.sum(res_p1)
+    #f11
+    res_11 = np.logical_and(res_1p, res_p1)
+    f_11 = np.sum(res_11)
+    
+    moi = [0, 0, 0, 0, 0]
+    #interest
+    moi[0] = N*f_11/f_1p/f_p1
+    #cosine
+    moi[1] = f_11/np.sqrt(f_1p * f_p1)
+    #Piatetsky_Shapiro
+    moi[2] = f_11/N - (f_1p * f_p1/(N^2))
+    #Jaccard
+    moi[3] = f_11/(f_1p + f_p1 - f_11)
+    #all-confidence
+    moi[4] = min(f_11/f_1p, f_11/f_p1)
+    
+    return moi
+
+moi_df = pd.DataFrame(columns = ('Interst', 'Cosine', 'Piatesky_Shapiro', 'Jaccard', 'All-confidence'))
+for i in range(5):
+    moi = get_moi(rules.iloc[i, 0], rules.iloc[i, 1])
+    moi_df.loc[len(moi_df.index)] = moi
+
+print(moi_df)
+
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+
+data = pd.read_csv("Honda.csv")
+data.to_csv('100131001-100131002—T2Org.csv', index=False)
+data.head()
+
+edit_data = data.drop(['name', 'fuel','seller_type', 'transmission', 'owner', 'mileage', 'engine', 'max_power', 'torque'],axis=1)
+edit_data.to_csv('100131001-100131002—T2Mod.csv', index=False)
+
+from sklearn.preprocessing import StandardScaler
+X = StandardScaler().fit_transform(edit_data)
+
+from sklearn.cluster import KMeans
+kmeans_3 = KMeans(n_clusters=3)
+kmeans_3.fit(X)
+kmeans_4 = KMeans(n_clusters=4)
+kmeans_4.fit(X)
+kmeans_5 = KMeans(n_clusters=5)
+kmeans_5.fit(X)
+print("SSE for k=3: {}\nSSE for k=4: {}\nSSE for k=5: {}".
+      format(round(kmeans_3.inertia_, 4), round(kmeans_4.inertia_,4), round(kmeans_5.inertia_, 4)))
+print("The least SSE is k=5 with SSE={}".format(round(kmeans_5.inertia_, 4)))
+
+edit_data['class'] = kmeans_5.labels_
+edit_data.to_csv('100131001-100131002—T2Class.csv', index=False)
+edit_data
+
+import numpy as np
+from sklearn.model_selection import KFold
+import pandas as pd 
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import label_binarize
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.metrics import roc_auc_score
+import matplotlib.pyplot as plt
+
+from sklearn import datasets, metrics, model_selection, svm
+
+
+data = pd.read_csv("C:/Users/76380/Desktop/Honda.csv")
+
+data = pd.read_csv("C:/Users/76380/Desktop/Honda.csv")
+
+
+X = data.iloc[:,:4]
+Y = data.iloc[:,4:5]
+X = np.array(X)
+Y = np.array(Y)
+data = np.array(data)
+
+clf = GaussianNB()
+clf.fit(X, Y)
+GaussianNB()
+clf.predict(X)
+#print(clf.predict([[-0.8, -1,50000,7000]]))
+
+import numpy as np
+from sklearn.model_selection import KFold
+import pandas as pd 
+
+from sklearn.metrics import roc_curve, auc
+from sklearn.dummy import DummyClassifier
+data = pd.read_csv("C:/Users/76380/Desktop/Honda.csv")
+
+
+X = data.iloc[:,:4]
+Y = data.iloc[:,4:5]
+X = np.array(X)
+Y = np.array(Y)
+data = np.array(data)
+
+dummy_clf = DummyClassifier(strategy="stratified")
+dummy_clf.fit(X, Y)
+DummyClassifier(strategy='stratified')
+dummy_clf.predict(X)
+#print(clf.predict([[-0.8, -1,50000,7000]]))
+
+
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import svm, datasets
+from sklearn.metrics import roc_curve, auc
+from sklearn.model_selection import StratifiedKFold
+
+data = pd.read_csv("C:/Users/76380/Desktop/Honda.csv")
+#data = np.array(data)
+X = data.iloc[:,:4]
+Y = data.iloc[:,4:5]
+X = np.array(X)
+y = []
+
+
+a = np.array(Y)
+y =[]
+for m in range(0,95):
+    for i in a[m]:
+        y.append(i)
+y = np.array(y)
+
+
+X, y = X[y != 2], y[y != 2]  
+n_samples, n_features = X.shape
+
+random_state = np.random.RandomState(0)
+X = np.c_[X, random_state.randn(n_samples, 200 * n_features)]
+ 
+cv = StratifiedKFold(n_splits=3)    
+
+classifier = GaussianNB()
+
+mean_tpr = 0.0              
+mean_fpr = np.linspace(0, 1, 100)
+cnt = 0
+for i, (train, test) in enumerate(cv.split(X,y)):       
+    cnt +=1
+    probas_ = classifier.fit(X[train], y[train]).predict_proba(X[test]) 
+    y_pred = classifier.fit(X[train], y[train]).predict(X[test])
+    print("Number of mislabeled points out of a total %d points : %d" % (X[test].shape[0], (y[test] != y_pred).sum()))
+    print("Accuracy: %d percent" %(X[test].shape[0]/y[test] != y_pred).sum())
+    fpr, tpr, thresholds = roc_curve(y[test], probas_[:, 1])    
+ 
+    mean_tpr += np.interp(mean_fpr, fpr, tpr)  
+    mean_tpr[0] = 0.0          
+    roc_auc = auc(fpr, tpr)  
+    plt.plot(fpr, tpr, lw=1, label='ROC fold {0:.2f} (area = {1:.2f})'.format(i, roc_auc))    
+ 
+plt.plot([0, 1], [0, 1], '--', color=(0.6, 0.6, 0.6), label='Luck')
+ 
+mean_tpr /= cnt  
+mean_tpr[-1] = 1.0   
+mean_auc = auc(mean_fpr, mean_tpr)
+ 
+plt.plot(mean_fpr, mean_tpr, 'k--',label='Mean ROC (area = {0:.2f})'.format(mean_auc), lw=2)
+ 
+plt.xlim([-0.05, 1.05])    
+plt.ylim([-0.05, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')   
+plt.title('Receiver operating characteristic example')
+plt.legend(loc="lower right")
+plt.show()
+ 
+
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import svm, datasets
+from sklearn.metrics import roc_curve, auc
+from sklearn.model_selection import StratifiedKFold
+
+data = pd.read_csv("C:/Users/76380/Desktop/Honda.csv")
+#data = np.array(data)
+X = data.iloc[:,:4]
+Y = data.iloc[:,4:5]
+X = np.array(X)
+y = []
+
+
+a = np.array(Y)
+y =[]
+for m in range(0,95):
+    for i in a[m]:
+        y.append(i)
+y = np.array(y)
+
+
+
+X, y = X[y != 2], y[y != 2]  
+n_samples, n_features = X.shape
+
+random_state = np.random.RandomState(0)
+X = np.c_[X, random_state.randn(n_samples, 200 * n_features)]
+ 
+cv = StratifiedKFold(n_splits=3)    
+
+classifier = DummyClassifier(strategy="stratified")
+
+mean_tpr = 0.0              
+mean_fpr = np.linspace(0, 1, 100)
+cnt = 0
+for i, (train, test) in enumerate(cv.split(X,y)):       
+    cnt +=1
+    probas_ = classifier.fit(X[train], y[train]).predict_proba(X[test]) 
+    y_pred = classifier.fit(X[train], y[train]).predict(X[test])
+    print("Number of mislabeled points out of a total %d points : %d" % (X[test].shape[0], (y[test] != y_pred).sum()))
+    
+    print("Accuracy: %d percent" %(X[test].shape[0]/y[test] != y_pred).sum())
+    fpr, tpr, thresholds = roc_curve(y[test], probas_[:, 1])    
+ 
+    mean_tpr += np.interp(mean_fpr, fpr, tpr)  
+    mean_tpr[0] = 0.0          
+    roc_auc = auc(fpr, tpr)  
+    plt.plot(fpr, tpr, lw=1, label='ROC fold {0:.2f} (area = {1:.2f})'.format(i, roc_auc))    
+ 
+plt.plot([0, 1], [0, 1], '--', color=(0.6, 0.6, 0.6), label='Luck')
+ 
+mean_tpr /= cnt  
+mean_tpr[-1] = 1.0   
+mean_auc = auc(mean_fpr, mean_tpr)
+ 
+plt.plot(mean_fpr, mean_tpr, 'k--',label='Mean ROC (area = {0:.2f})'.format(mean_auc), lw=2)
+ 
+plt.xlim([-0.05, 1.05])    
+plt.ylim([-0.05, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')   
+plt.title('Receiver operating characteristic example')
+plt.legend(loc="lower right")
+plt.show()
+  
+

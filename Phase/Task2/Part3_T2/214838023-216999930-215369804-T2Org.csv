@@ -1,0 +1,96 @@
+name,year,selling_price,km_driven,fuel,seller_type,transmission,owner,mileage,engine,max_power,torque,seats
+Honda Amaze E i-DTEC,2017,500000,70000,Diesel,Individual,Manual,First Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Amaze E i-DTEC,2017,515000,60000,Diesel,Individual,Manual,Second Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Amaze E i-VTEC,2017,475000,57000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1198 CC,86.7 bhp,109Nm@ 4500rpm,5
+Honda Amaze E Option i-DTEC,2017,550000,120000,Diesel,Individual,Manual,First Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Amaze i-VTEC Privilege Edition,2017,490000,80000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1198 CC,86.7 bhp,109Nm@ 4500rpm,5
+Honda Amaze i-VTEC Privilege Edition,2017,570000,15780,Petrol,Individual,Manual,First Owner,17.8 kmpl,1198 CC,86.7 bhp,109Nm@ 4500rpm,5
+Honda Amaze S i-DTEC,2017,600000,24500,Diesel,Dealer,Manual,First Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Amaze S i-DTEC,2017,590000,70000,Diesel,Individual,Manual,Second Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Amaze SX i-DTEC,2017,650000,50000,Diesel,Individual,Manual,First Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda BR-V i-DTEC VX MT,2017,950000,24000,Diesel,Dealer,Manual,First Owner,21.9 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,7
+Honda BR-V i-VTEC E MT,2017,595000,120000,Petrol,Individual,Manual,First Owner,15.4 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda BR-V i-VTEC S MT,2017,700000,43000,Petrol,Dealer,Manual,First Owner,15.4 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda BR-V i-VTEC S MT,2017,700000,43000,Petrol,Dealer,Manual,First Owner,15.4 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda BR-V i-VTEC VX MT,2017,840000,30646,Petrol,Dealer,Manual,First Owner,15.4 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda Brio 1.2 E MT,2017,400000,50000,Petrol,Individual,Manual,First Owner,18.5 kmpl,1198 CC,86.8 bhp,109Nm@ 4500rpm,5
+Honda Brio 1.2 S MT,2017,480000,30400,Petrol,Dealer,Manual,First Owner,18.5 kmpl,1198 CC,86.8 bhp,109Nm@ 4500rpm,5
+Honda Brio 1.2 VX MT,2017,450000,6750,Petrol,Individual,Manual,First Owner,18.5 kmpl,1198 CC,86.8 bhp,109Nm@ 4500rpm,5
+Honda BRV i-DTEC V MT,2017,940000,57900,Diesel,Dealer,Manual,First Owner,21.9 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,7
+Honda BRV i-VTEC V CVT,2017,950000,15000,Petrol,Individual,Automatic,First Owner,15.4 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda BRV i-VTEC V CVT,2017,850000,30000,Petrol,Dealer,Automatic,First Owner,15.4 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda BRV i-VTEC V CVT,2017,950000,15000,Petrol,Individual,Automatic,First Owner,15.4 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda City 1.5 S MT,2017,675000,49523,Petrol,Dealer,Manual,First Owner,17.0 kmpl,1497 CC,118 bhp,146Nm at 4800 rpm,5
+Honda City i DTec SV,2017,650000,47000,Diesel,Individual,Manual,Second Owner,26.0 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda City i VTEC CVT VX,2017,1100000,26000,Petrol,Individual,Automatic,First Owner,18.0 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i VTEC V,2017,850000,11688,Petrol,Trustmark Dealer,Manual,First Owner,17.8 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i VTEC V,2017,860000,28000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i VTEC V,2017,860000,28000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i VTEC V,2017,860000,28000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i VTEC V,2017,894999,35000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i VTEC VX,2017,890000,18300,Petrol,Individual,Manual,First Owner,17.8 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i-DTEC VX,2017,1300000,30000,Diesel,Individual,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-DTEC VX,2017,1250000,33000,Diesel,Individual,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-DTEC VX,2017,975000,82000,Diesel,Individual,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-DTEC VX,2017,850000,103000,Diesel,Dealer,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-DTEC ZX,2017,1050000,50000,Diesel,Individual,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-DTEC ZX,2017,925000,69000,Diesel,Dealer,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-VTEC CVT VX,2017,795000,41000,Petrol,Dealer,Automatic,First Owner,18.0 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC CVT VX,2017,1150000,6825,Petrol,Individual,Automatic,First Owner,18.0 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC CVT ZX,2017,1100000,20000,Petrol,Individual,Automatic,First Owner,18.0 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC CVT ZX,2017,1025000,68140,Petrol,Dealer,Automatic,First Owner,18.0 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC VX,2017,950000,35000,Petrol,Individual,Manual,First Owner,17.4 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC VX,2017,850000,40000,Petrol,Individual,Manual,First Owner,17.4 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City V AT,2017,875000,18000,Petrol,Dealer,Automatic,First Owner,15.6 kmpl,1497 CC,116.3 bhp,146Nm@ 4800rpm,5
+Honda City V AT,2017,925000,18000,Petrol,Dealer,Automatic,First Owner,15.6 kmpl,1497 CC,116.3 bhp,146Nm@ 4800rpm,5
+Honda CR-V 2.4L 4WD AT AVN,2017,1750000,73000,Petrol,Dealer,Automatic,First Owner,12.0 kmpl,2354 CC,187.4 bhp,226Nm@ 4400rpm,5
+Honda CR-V 2.4L 4WD AT AVN,2017,1825000,58000,Petrol,Dealer,Automatic,First Owner,12.0 kmpl,2354 CC,187.4 bhp,226Nm@ 4400rpm,5
+Honda CR-V 2.4L 4WD AT AVN,2017,1650000,52000,Petrol,Dealer,Automatic,First Owner,12.0 kmpl,2354 CC,187.4 bhp,226Nm@ 4400rpm,5
+Honda CR-V 2.4L 4WD AT AVN,2017,1650000,52000,Petrol,Dealer,Automatic,First Owner,12.0 kmpl,2354 CC,187.4 bhp,226Nm@ 4400rpm,5
+Honda Jazz 1.2 V AT i VTEC Privilege,2017,615000,40000,Petrol,Individual,Automatic,First Owner,19.0 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz 1.2 V i VTEC,2017,650000,25000,Petrol,Individual,Manual,First Owner,18.7 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz 1.5 S i DTEC,2017,670000,50000,Diesel,Individual,Manual,First Owner,27.3 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Jazz V CVT,2017,725000,6550,Petrol,Individual,Automatic,First Owner,18.2 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz V CVT,2017,725000,6550,Petrol,Individual,Automatic,First Owner,18.2 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz V Diesel,2017,525000,37151,Diesel,Dealer,Manual,First Owner,27.3 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Mobilio S i VTEC,2017,600000,70000,Petrol,Individual,Manual,First Owner,17.3 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,7
+Honda Amaze i-VTEC Privilege Edition,2018,635000,40000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1198 CC,86.7 bhp,109Nm@ 4500rpm,5
+Honda Amaze S CVT i-VTEC,2018,750000,15000,Petrol,Individual,Automatic,First Owner,18.1 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Amaze S Diesel BSIV,2018,700000,43000,Diesel,Individual,Manual,First Owner,27.4 kmpl,1498 CC,98.63 bhp,200Nm@ 1750rpm,5
+Honda Amaze S i-VTEC,2018,585000,15000,Petrol,Individual,Manual,First Owner,17.8 kmpl,1198 CC,86.7 bhp,109Nm@ 4500rpm,5
+Honda Amaze S Option i-DTEC,2018,560000,50000,Diesel,Individual,Manual,First Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Amaze V Petrol BSIV,2018,600000,20000,Petrol,Individual,Manual,First Owner,19.5 kmpl,1199 CC,88.76 bhp,110Nm@ 4800rpm,5
+Honda Amaze VX Diesel BSIV,2018,670000,93000,Diesel,Individual,Manual,First Owner,27.4 kmpl,1498 CC,98.63 bhp,200Nm@ 1750rpm,5
+Honda Amaze VX i-DTEC,2018,825000,40000,Diesel,Individual,Manual,First Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Amaze VX i-DTEC,2018,675000,40000,Diesel,Individual,Manual,First Owner,25.8 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda City i VTEC VX,2018,925000,28900,Petrol,Dealer,Manual,First Owner,17.8 kmpl,1497 CC,117.3 bhp,145Nm@ 4600rpm,5
+Honda City i-DTEC VX,2018,1031000,60000,Diesel,Individual,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-VTEC CVT V,2018,1085000,1000,Petrol,Individual,Automatic,First Owner,18.0 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC V,2018,949000,10200,Petrol,Individual,Manual,First Owner,17.4 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC VX,2018,1180000,5500,Petrol,Individual,Manual,First Owner,17.4 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda Jazz 1.2 V i VTEC,2018,680000,8576,Petrol,Dealer,Manual,First Owner,18.7 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz 1.2 V i VTEC,2018,680000,8576,Petrol,Dealer,Manual,First Owner,18.7 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz 1.2 VX i VTEC,2018,675000,24265,Petrol,Dealer,Manual,First Owner,18.7 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz 1.5 S i DTEC,2018,650000,47725,Diesel,Dealer,Manual,First Owner,27.3 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,5
+Honda Jazz V,2018,600000,20000,Petrol,Individual,Manual,First Owner,18.2 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz V CVT,2018,860000,40000,Petrol,Individual,Automatic,First Owner,18.2 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Amaze S CVT Diesel BSIV,2019,700000,40000,Diesel,Individual,Automatic,First Owner,23.8 kmpl,1498 CC,78.9 bhp,160Nm@ 1750rpm,5
+Honda Amaze S CVT Diesel BSIV,2019,700000,40000,Diesel,Individual,Automatic,First Owner,23.8 kmpl,1498 CC,78.9 bhp,160Nm@ 1750rpm,5
+Honda Amaze S CVT Petrol BSIV,2019,680000,15000,Petrol,Individual,Automatic,First Owner,19.0 kmpl,1199 CC,88.76 bhp,110Nm@ 4800rpm,5
+Honda Amaze S i-VTEC,2019,690000,1303,Petrol,Dealer,Manual,First Owner,17.8 kmpl,1198 CC,86.7 bhp,109Nm@ 4500rpm,5
+Honda Amaze S Petrol BSIV,2019,670000,5000,Petrol,Individual,Manual,First Owner,19.5 kmpl,1199 CC,88.76 bhp,110Nm@ 4800rpm,5
+Honda Amaze S Petrol BSIV,2019,640000,6000,Petrol,Individual,Manual,First Owner,19.5 kmpl,1199 CC,88.76 bhp,110Nm@ 4800rpm,5
+Honda Amaze V CVT Petrol BSIV,2019,779000,7032,Petrol,Trustmark Dealer,Automatic,First Owner,19.0 kmpl,1199 CC,88.76 bhp,110Nm@ 4800rpm,5
+Honda Amaze V Petrol BSIV,2019,700000,4500,Petrol,Individual,Manual,First Owner,19.5 kmpl,1199 CC,88.76 bhp,110Nm@ 4800rpm,5
+Honda Amaze VX Diesel BSIV,2019,800000,10000,Diesel,Individual,Manual,First Owner,27.4 kmpl,1498 CC,98.63 bhp,200Nm@ 1750rpm,5
+Honda Amaze VX Petrol BSIV,2019,670000,20000,Petrol,Individual,Manual,First Owner,19.5 kmpl,1199 CC,88.76 bhp,110Nm@ 4800rpm,5
+Honda BRV i-DTEC V MT,2019,1100000,50000,Diesel,Individual,Manual,Second Owner,21.9 kmpl,1498 CC,98.6 bhp,200Nm@ 1750rpm,7
+Honda City i-DTEC V,2019,1200000,40000,Diesel,Individual,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-DTEC VX,2019,1110000,10500,Diesel,Individual,Manual,First Owner,25.6 kmpl,1498 CC,97.9 bhp,200Nm@ 1750rpm,5
+Honda City i-VTEC CVT ZX,2019,1227000,5000,Petrol,Individual,Automatic,First Owner,18.0 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City i-VTEC CVT ZX,2019,1227000,5000,Petrol,Individual,Automatic,First Owner,18.0 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda City VX CVT,2019,1300000,20000,Petrol,Individual,Automatic,First Owner,17.4 kmpl,1497 CC,117.6 bhp,145Nm@ 4600rpm,5
+Honda Civic ZX,2019,2000000,24857,Petrol,Dealer,Automatic,Test Drive Car,16.5 kmpl,1799 CC,139.46 bhp,174Nm@ 4300rpm,5
+Honda Jazz VX CVT,2019,840000,1500,Petrol,Individual,Automatic,First Owner,18.2 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz VX CVT,2019,750000,3100,Petrol,Individual,Automatic,First Owner,18.2 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
+Honda Jazz VX CVT,2019,840000,1500,Petrol,Individual,Automatic,First Owner,18.2 kmpl,1199 CC,88.7 bhp,110Nm@ 4800rpm,5
